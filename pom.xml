@@ -54,7 +54,15 @@
 				</exclusion>
 			</exclusions>
 		</dependency>
+		
+		<dependency>
+			<groupId>com.github.transbankdevelopers</groupId>
+			<artifactId>transbank-sdk-java</artifactId>
+			<version>1.7.0</version>
+		</dependency>
+		
 	</dependencies>
+
 
 	<build>
 		<plugins>
