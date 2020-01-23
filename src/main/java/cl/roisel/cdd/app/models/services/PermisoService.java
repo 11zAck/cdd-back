@@ -9,49 +9,45 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 
-import cl.roisel.cdd.app.models.entity.Invitado;
-import cl.roisel.cdd.app.models.repo.InvitadoRepo;
+import cl.roisel.cdd.app.models.entity.Permiso;
+
+import cl.roisel.cdd.app.models.repo.PermisoRepo;
 
 @Service
-public class InvitadoService {
+public class PermisoService {
 
-	private static final Logger log = LoggerFactory.getLogger(InvitadoService.class);
+	private static final Logger log = LoggerFactory.getLogger(PermisoService.class);
 	
-	@Autowired private InvitadoRepo repo;
+	@Autowired private PermisoRepo repo;
 	
 	@Transactional(readOnly = true)
-	public List<Invitado> findAll(){
+	public List<Permiso> findAll(){
 		log.info("");
-		return (List<Invitado>)repo.findAll();
+		return (List<Permiso>)repo.findAll();
 	}
 	
 	@Transactional(readOnly = true)
-	public Invitado findById(Long id) {
+	public Permiso findById(Long id) {
 		log.info("");
 		return repo.findById(id).orElse(null);
 	}
 	
-	@Transactional(readOnly = true)
-	public Invitado findByEmail(String email) {
-		log.info("");
-		return repo.findByEmail(email).orElse(null);
-	}
-	
 	@Transactional(readOnly = false)
-	public Invitado update(Invitado nuevo) {
+	public Permiso update(Permiso nuevo) {
 		log.info("");
-		Invitado anterior = repo.findById( nuevo.getId() ).orElse(null);
+		Permiso anterior = repo.findById( nuevo.getId() ).orElse(null);
 		if( anterior == null ) {
 			return null;
 		}
-		anterior.setEmail( nuevo.getEmail() );
+		anterior.setName(nuevo.getName());
+		
 		return repo.save(anterior);
 	}
 	
 	@Transactional(readOnly = false)
-	public Invitado saveNew(Invitado invitado) {
+	public Permiso saveNew(Permiso nuevo) {
 		log.info("");
-		return repo.save(invitado);
+		return repo.save(nuevo);
 	}
 	
 

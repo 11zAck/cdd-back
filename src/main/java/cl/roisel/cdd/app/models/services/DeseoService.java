@@ -1,5 +1,7 @@
 package cl.roisel.cdd.app.models.services;
 
+import java.util.List;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +16,12 @@ public class DeseoService {
 	private static final Logger log = LoggerFactory.getLogger(DeseoService.class);
 
 	@Autowired private DeseoRepo repo;
+	
+	@Transactional(readOnly = true)
+	public List<Deseo> findAll() {
+		log.info("");
+		return (List<Deseo>) repo.findAll();
+	}
 	
 	@Transactional(readOnly = true)
 	public Deseo findById(Long id) {

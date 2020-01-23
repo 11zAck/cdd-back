@@ -14,60 +14,62 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.http.HttpStatus;
 
-
 import cl.roisel.cdd.app.models.entity.Banco;
-import cl.roisel.cdd.app.models.services.BancoService;
+import cl.roisel.cdd.app.models.entity.Deseo;
+
+import cl.roisel.cdd.app.models.services.DeseoService;
 
 @RestController
-@RequestMapping("/v1/bancos")
-public class BancoRestController {
+@RequestMapping("/v1/deseos")
+public class DeseoRestController {
 
-	@Autowired private BancoService bancoService;
+	@Autowired private DeseoService service;
 	
-	private final org.apache.logging.log4j.Logger log = org.apache.logging.log4j.LogManager.getLogger(BancoRestController.class);
+	private final org.apache.logging.log4j.Logger log = org.apache.logging.log4j.LogManager.getLogger(DeseoRestController.class);
 	
+
 	@GetMapping
-	public List<Banco> list() {
+	public List<Deseo> list() {
 		
-		return bancoService.findAll();
+		return service.findAll();
 	}
 
 	@GetMapping("/{id}")
-	public Banco showId(@PathVariable Long id) {
-		return this.bancoService.findById(id);
+	public Deseo showId(@PathVariable Long id) {
+		return this.service.findById(id);
 	}
 	
 	@GetMapping("/nombre/{nombre}")
-	public Banco showNombre(@PathVariable String nombre) {
-		return this.bancoService.findByNombre(nombre);
+	public Deseo showNombre(@PathVariable String nombre) {
+		return this.service.findByNombre(nombre);
 	}
 
 	@PostMapping
 	@ResponseStatus(HttpStatus.CREATED)
-	public Banco create(@RequestBody Banco banco) {
+	public Deseo create(@RequestBody Deseo deseo) {
 		// Como buena practica es recomendable crear una fecha de creaciòn para los registros 
-		//Banco.setCreateAt(new Date()); 
-		this.bancoService.save(banco);
-		return banco;
+		//Deseo.setCreateAt(new Date()); 
+		this.service.save(deseo);
+		return deseo;
 	}
 
 	@PutMapping("/{id}")
 	@ResponseStatus(HttpStatus.CREATED)
-	public Banco update(@RequestBody Banco banco, @PathVariable Long id) {
-		Banco newBanco = this.bancoService.findById(id);
-		newBanco.setNombre(banco.getNombre());
+	public Deseo update(@RequestBody Deseo banco, @PathVariable Long id) {
+		Deseo newDeseo = this.service.findById(id);
+		newDeseo.setNombre(banco.getNombre());
 		
-		this.bancoService.update(newBanco);
-		return newBanco;
+		this.service.update(newDeseo);
+		return newDeseo;
 	}
 
 	@DeleteMapping("/{id}")
 	@ResponseStatus(HttpStatus.NO_CONTENT)
 	public void delete(@PathVariable Long id) {
 		
-		Banco banco = this.bancoService.findById(id);
+		Deseo banco = this.service.findById(id);
 		if( banco != null ) {
-			this.bancoService.delete(id);
+			this.service.delete(id);
 		}
 		
 	}

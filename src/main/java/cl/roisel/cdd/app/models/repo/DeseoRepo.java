@@ -3,14 +3,16 @@ package cl.roisel.cdd.app.models.repo;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.repository.query.Param;
 
+import cl.roisel.cdd.app.models.entity.Banco;
 import cl.roisel.cdd.app.models.entity.Deseo;
 
 public interface DeseoRepo extends CrudRepository<Deseo, Long>{
-
-	public List<Deseo> findAll();
-	public Optional<Deseo> findById(Long id);
-	public Optional<Deseo> findByNombre(String nombre);
+	
+	@Query("from Deseo where nombre=:nombre")
+	public Optional<Deseo> findByNombre(@Param("nombre") String nombre);  
 	
 }
