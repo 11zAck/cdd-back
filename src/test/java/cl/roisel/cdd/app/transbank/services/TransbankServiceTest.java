@@ -1,6 +1,7 @@
 package cl.roisel.cdd.app.transbank.services;
 
-import cl.transbank.webpay.configuration.Configuration;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+
 import org.junit.Ignore;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,9 +9,9 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
 
-import java.util.Map;
+import com.transbank.webpay.wswebpay.service.WsInitTransactionOutput;
 
-import static org.junit.jupiter.api.Assertions.*;
+import cl.transbank.webpay.configuration.Configuration;
 
 @SpringBootTest
 @ActiveProfiles("local")
@@ -31,8 +32,7 @@ class TransbankServiceTest {
         String returnUrl = "http://localhost:8000/return";
         String finalUrl = "http://localhost:8000/final";
 
-        final Map<String, Object> stringObjectMap = service.iniciarPago(amount, sessionId, buyOrder, returnUrl, finalUrl);
-        assertNotNull( stringObjectMap.get("TOKEN") );
-
+        WsInitTransactionOutput out = service.iniciarPago(amount, sessionId, buyOrder, returnUrl, finalUrl);
+        assertNotNull( out );
     }
 }
