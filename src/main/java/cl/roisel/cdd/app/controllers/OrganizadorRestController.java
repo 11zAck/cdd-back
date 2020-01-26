@@ -15,8 +15,9 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.http.HttpStatus;
 
-
+import cl.roisel.cdd.app.models.entity.Organizador;
 import cl.roisel.cdd.app.models.entity.Usuario;
+import cl.roisel.cdd.app.models.services.OrganizadorService;
 import cl.roisel.cdd.app.models.services.UsuarioService;
 
 
@@ -24,46 +25,39 @@ import cl.roisel.cdd.app.models.services.UsuarioService;
 @RequestMapping("/v1/organizadores")
 public class OrganizadorRestController {
 
-	@Autowired private UsuarioService service;
+	@Autowired private OrganizadorService service;
 	
 	private final org.apache.logging.log4j.Logger log = org.apache.logging.log4j.LogManager.getLogger(OrganizadorRestController.class);
 	
 
 	@GetMapping
-	public List<Usuario> list() {
+	public List<Organizador> list() {
 		
 		return service.findAll();
 	}
 
 	@GetMapping("/{id}")
-	public Usuario showId(@PathVariable Long id) {
+	public Organizador showId(@PathVariable Long id) {
 		return this.service.findById(id);
 	}
 	
-	@GetMapping("/{username}")
-	public Usuario showUsername(@PathVariable String username) {
-		return this.service.findByUsuario(username);
+	@GetMapping("/username/{username}")
+	public Organizador showUsername(@PathVariable String username) {
+		return this.service.findByUsername(username);
 	}
 	
-	@GetMapping("/{dni}")
-	public Usuario showDni(@PathVariable String dni) {
-		return this.service.findByDni(dni);
-	}
-	
-	
-
 
 	@PostMapping
 	@ResponseStatus(HttpStatus.CREATED)
-	public Usuario create(@RequestBody Usuario nuevo) {
+	public Organizador create(@RequestBody Organizador nuevo) {
 		this.service.saveNew(nuevo);
 		return nuevo;
 	}
 
 	@PutMapping("/{id}")
 	@ResponseStatus(HttpStatus.CREATED)
-	public Usuario update(@RequestBody Usuario nuevo, @PathVariable Long id) {
-		Usuario antiguo = this.service.findById(id);
+	public Organizador update(@RequestBody Organizador nuevo, @PathVariable Long id) {
+		Organizador antiguo = this.service.findById(id);
 		
 		if(antiguo==null) {
 			
@@ -77,7 +71,7 @@ public class OrganizadorRestController {
 
 	@DeleteMapping("/{id}")
 	public HttpStatus delete(@PathVariable Long id) {
-		Usuario antiguo = this.service.findById(id);
+		Organizador antiguo = this.service.findById(id);
 		
 		if( antiguo != null ) {
 			this.service.delete(id);

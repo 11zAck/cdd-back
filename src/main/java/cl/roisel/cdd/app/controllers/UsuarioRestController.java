@@ -45,12 +45,12 @@ public class UsuarioRestController {
 		return this.service.findById(id);
 	}
 	
-	@GetMapping("/{username}")
+	@GetMapping("/username/{username}")
 	public Usuario showUsername(@PathVariable String username) {
 		return this.service.findByUsuario(username);
 	}
 	
-	@GetMapping("/{dni}")
+	@GetMapping("/dni/{dni}")
 	public Usuario showDni(@PathVariable String dni) {
 		return this.service.findByDni(dni);
 	}

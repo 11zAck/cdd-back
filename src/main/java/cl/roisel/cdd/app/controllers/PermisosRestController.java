@@ -38,7 +38,7 @@ public class PermisosRestController {
 		return service.findAll();
 	}
 
-	@GetMapping("/{id")
+	@GetMapping("/{id}")
 	public Permiso showId(@PathVariable Long id) {
 		return this.service.findById(id);
 	}

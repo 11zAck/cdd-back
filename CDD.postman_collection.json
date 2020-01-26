@@ -1,0 +1,1192 @@
+{
+	"info": {
+		"_postman_id": "6d35cd21-025f-4e20-bd84-b9c0e5183f7c",
+		"name": "CDD",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Banco",
+			"item": [
+				{
+					"name": "FindAll",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{current_host}}:{{port}}/v1/bancos",
+							"protocol": "http",
+							"host": [
+								"{{current_host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"v1",
+								"bancos"
+							]
+						},
+						"description": "Select Query"
+					},
+					"response": []
+				},
+				{
+					"name": "FindById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{current_host}}:{{port}}/v1/bancos/1",
+							"protocol": "http",
+							"host": [
+								"{{current_host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"v1",
+								"bancos",
+								"1"
+							]
+						},
+						"description": "Select Query"
+					},
+					"response": []
+				},
+				{
+					"name": "FindByINombre",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{current_host}}:{{port}}/v1/bancos/nombre/Banco Prueba 3",
+							"protocol": "http",
+							"host": [
+								"{{current_host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"v1",
+								"bancos",
+								"nombre",
+								"Banco Prueba 3"
+							]
+						},
+						"description": "Select Query"
+					},
+					"response": []
+				},
+				{
+					"name": "Insert",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "\n{\n \"nombre\":\"Banco Prueba X\"\n}"
+						},
+						"url": {
+							"raw": "http://{{current_host}}:{{port}}/v1/bancos",
+							"protocol": "http",
+							"host": [
+								"{{current_host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"v1",
+								"bancos"
+							]
+						},
+						"description": "Select Query"
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "\n{\n \"nombre\":\"Banco Prueba X Nuevo\"\n}"
+						},
+						"url": {
+							"raw": "http://{{current_host}}:{{port}}/v1/bancos/5",
+							"protocol": "http",
+							"host": [
+								"{{current_host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"v1",
+								"bancos",
+								"5"
+							]
+						},
+						"description": "Select Query"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "\n{\n \"nombre\":\"Banco Prueba X Nuevo\"\n}"
+						},
+						"url": {
+							"raw": "http://{{current_host}}:{{port}}/v1/bancos/2",
+							"protocol": "http",
+							"host": [
+								"{{current_host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"v1",
+								"bancos",
+								"2"
+							]
+						},
+						"description": "Select Query"
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Deseo",
+			"item": [
+				{
+					"name": "FindAll",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{current_host}}:{{port}}/v1/deseos",
+							"protocol": "http",
+							"host": [
+								"{{current_host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"v1",
+								"deseos"
+							]
+						},
+						"description": "Select Query"
+					},
+					"response": []
+				},
+				{
+					"name": "FindById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{current_host}}:{{port}}/v1/deseos/1",
+							"protocol": "http",
+							"host": [
+								"{{current_host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"v1",
+								"deseos",
+								"1"
+							]
+						},
+						"description": "Select Query"
+					},
+					"response": []
+				},
+				{
+					"name": "FindByINombre",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{current_host}}:{{port}}/v1/deseos/nombre/nuevo deseo",
+							"protocol": "http",
+							"host": [
+								"{{current_host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"v1",
+								"deseos",
+								"nombre",
+								"nuevo deseo"
+							]
+						},
+						"description": "Select Query"
+					},
+					"response": []
+				},
+				{
+					"name": "Insert",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "\n{\n \"nombre\":\"Banco Prueba X\"\n}"
+						},
+						"url": {
+							"raw": "http://{{current_host}}:{{port}}/v1/deseos",
+							"protocol": "http",
+							"host": [
+								"{{current_host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"v1",
+								"deseos"
+							]
+						},
+						"description": "Select Query"
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "\n{\n \"nombre\":\"Banco Prueba X Nuevo\"\n}"
+						},
+						"url": {
+							"raw": "http://{{current_host}}:{{port}}/v1/deseos/5",
+							"protocol": "http",
+							"host": [
+								"{{current_host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"v1",
+								"deseos",
+								"5"
+							]
+						},
+						"description": "Select Query"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "\n{\n \"nombre\":\"Banco Prueba X Nuevo\"\n}"
+						},
+						"url": {
+							"raw": "http://{{current_host}}:{{port}}/v1/deseos/5",
+							"protocol": "http",
+							"host": [
+								"{{current_host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"v1",
+								"deseos",
+								"5"
+							]
+						},
+						"description": "Select Query"
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Eventos",
+			"item": [
+				{
+					"name": "FindAll",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{current_host}}:{{port}}/v1/eventos",
+							"protocol": "http",
+							"host": [
+								"{{current_host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"v1",
+								"eventos"
+							]
+						},
+						"description": "Select Query"
+					},
+					"response": []
+				},
+				{
+					"name": "FindById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{current_host}}:{{port}}/v1/eventos/1",
+							"protocol": "http",
+							"host": [
+								"{{current_host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"v1",
+								"eventos",
+								"1"
+							]
+						},
+						"description": "Select Query"
+					},
+					"response": []
+				},
+				{
+					"name": "FindByINombre",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{current_host}}:{{port}}/v1/eventos/nombre/nuevo evento",
+							"protocol": "http",
+							"host": [
+								"{{current_host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"v1",
+								"eventos",
+								"nombre",
+								"nuevo evento"
+							]
+						},
+						"description": "Select Query"
+					},
+					"response": []
+				},
+				{
+					"name": "Insert",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "\n{\n \"nombre\":\"Banco Prueba X\"\n}"
+						},
+						"url": {
+							"raw": "http://{{current_host}}:{{port}}/v1/eventos",
+							"protocol": "http",
+							"host": [
+								"{{current_host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"v1",
+								"eventos"
+							]
+						},
+						"description": "Select Query"
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "\n{\n \"nombre\":\"Banco Prueba X Nuevo\"\n}"
+						},
+						"url": {
+							"raw": "http://{{current_host}}:{{port}}/v1/eventos/5",
+							"protocol": "http",
+							"host": [
+								"{{current_host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"v1",
+								"eventos",
+								"5"
+							]
+						},
+						"description": "Select Query"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "\n{\n \"nombre\":\"Banco Prueba X Nuevo\"\n}"
+						},
+						"url": {
+							"raw": "http://{{current_host}}:{{port}}/v1/eventos/5",
+							"protocol": "http",
+							"host": [
+								"{{current_host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"v1",
+								"eventos",
+								"5"
+							]
+						},
+						"description": "Select Query"
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Usuario",
+			"item": [
+				{
+					"name": "FindAll",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{current_host}}:{{port}}/v1/usuarios",
+							"protocol": "http",
+							"host": [
+								"{{current_host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"v1",
+								"usuarios"
+							]
+						},
+						"description": "Select Query"
+					},
+					"response": []
+				},
+				{
+					"name": "FindById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{current_host}}:{{port}}/v1/usuarios/1",
+							"protocol": "http",
+							"host": [
+								"{{current_host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"v1",
+								"usuarios",
+								"1"
+							]
+						},
+						"description": "Select Query"
+					},
+					"response": []
+				},
+				{
+					"name": "FindByIUsername",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{current_host}}:{{port}}/v1/usuarios/username/el normbre de usuario",
+							"protocol": "http",
+							"host": [
+								"{{current_host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"v1",
+								"usuarios",
+								"username",
+								"el normbre de usuario"
+							]
+						},
+						"description": "Select Query"
+					},
+					"response": []
+				},
+				{
+					"name": "FindByIDni",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{current_host}}:{{port}}/v1/usuarios/dni/1-9",
+							"protocol": "http",
+							"host": [
+								"{{current_host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"v1",
+								"usuarios",
+								"dni",
+								"1-9"
+							]
+						},
+						"description": "Select Query"
+					},
+					"response": []
+				},
+				{
+					"name": "Insert",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "\n{\n \"nombre\":\"Banco Prueba X\"\n}"
+						},
+						"url": {
+							"raw": "http://{{current_host}}:{{port}}/v1/usuarios",
+							"protocol": "http",
+							"host": [
+								"{{current_host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"v1",
+								"usuarios"
+							]
+						},
+						"description": "Select Query"
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "\n{\n \"nombre\":\"Banco Prueba X Nuevo\"\n}"
+						},
+						"url": {
+							"raw": "http://{{current_host}}:{{port}}/v1/usuarios/1",
+							"protocol": "http",
+							"host": [
+								"{{current_host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"v1",
+								"usuarios",
+								"1"
+							]
+						},
+						"description": "Select Query"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "\n{\n \"nombre\":\"Banco Prueba X Nuevo\"\n}"
+						},
+						"url": {
+							"raw": "http://{{current_host}}:{{port}}/v1/usuarios/1",
+							"protocol": "http",
+							"host": [
+								"{{current_host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"v1",
+								"usuarios",
+								"1"
+							]
+						},
+						"description": "Select Query"
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Invitados",
+			"item": [
+				{
+					"name": "FindAll",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{current_host}}:{{port}}/v1/invitados",
+							"protocol": "http",
+							"host": [
+								"{{current_host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"v1",
+								"invitados"
+							]
+						},
+						"description": "Select Query"
+					},
+					"response": []
+				},
+				{
+					"name": "FindByEmail",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{current_host}}:{{port}}/v1/usuarios/1",
+							"protocol": "http",
+							"host": [
+								"{{current_host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"v1",
+								"usuarios",
+								"1"
+							]
+						},
+						"description": "Select Query"
+					},
+					"response": []
+				},
+				{
+					"name": "Insert",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "\n{\n \"nombre\":\"Banco Prueba X\"\n}"
+						},
+						"url": {
+							"raw": "http://{{current_host}}:{{port}}/v1/invitados",
+							"protocol": "http",
+							"host": [
+								"{{current_host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"v1",
+								"invitados"
+							]
+						},
+						"description": "Select Query"
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "\n{\n \"nombre\":\"Banco Prueba X Nuevo\"\n}"
+						},
+						"url": {
+							"raw": "http://{{current_host}}:{{port}}/v1/invitados/1",
+							"protocol": "http",
+							"host": [
+								"{{current_host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"v1",
+								"invitados",
+								"1"
+							]
+						},
+						"description": "Select Query"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "\n{\n \"nombre\":\"Banco Prueba X Nuevo\"\n}"
+						},
+						"url": {
+							"raw": "http://{{current_host}}:{{port}}/v1/invitados/1",
+							"protocol": "http",
+							"host": [
+								"{{current_host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"v1",
+								"invitados",
+								"1"
+							]
+						},
+						"description": "Select Query"
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Organizadores",
+			"item": [
+				{
+					"name": "FindAll",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{current_host}}:{{port}}/v1/organizadores",
+							"protocol": "http",
+							"host": [
+								"{{current_host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"v1",
+								"organizadores"
+							]
+						},
+						"description": "Select Query"
+					},
+					"response": []
+				},
+				{
+					"name": "FindById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{current_host}}:{{port}}/v1/usuarios/1",
+							"protocol": "http",
+							"host": [
+								"{{current_host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"v1",
+								"usuarios",
+								"1"
+							]
+						},
+						"description": "Select Query"
+					},
+					"response": []
+				},
+				{
+					"name": "FindByIUsername",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{current_host}}:{{port}}/v1/organizadores/username/el normbre de usuario",
+							"protocol": "http",
+							"host": [
+								"{{current_host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"v1",
+								"organizadores",
+								"username",
+								"el normbre de usuario"
+							]
+						},
+						"description": "Select Query"
+					},
+					"response": []
+				},
+				{
+					"name": "Insert",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "\n{\n \"nombre\":\"Banco Prueba X\"\n}"
+						},
+						"url": {
+							"raw": "http://{{current_host}}:{{port}}/v1/organizadores",
+							"protocol": "http",
+							"host": [
+								"{{current_host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"v1",
+								"organizadores"
+							]
+						},
+						"description": "Select Query"
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "\n{\n \"nombre\":\"Banco Prueba X Nuevo\"\n}"
+						},
+						"url": {
+							"raw": "http://{{current_host}}:{{port}}/v1/organizadores/1",
+							"protocol": "http",
+							"host": [
+								"{{current_host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"v1",
+								"organizadores",
+								"1"
+							]
+						},
+						"description": "Select Query"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "\n{\n \"nombre\":\"Banco Prueba X Nuevo\"\n}"
+						},
+						"url": {
+							"raw": "http://{{current_host}}:{{port}}/v1/organizadores/1",
+							"protocol": "http",
+							"host": [
+								"{{current_host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"v1",
+								"organizadores",
+								"1"
+							]
+						},
+						"description": "Select Query"
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Permisos",
+			"item": [
+				{
+					"name": "FindAll",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{current_host}}:{{port}}/v1/permisos",
+							"protocol": "http",
+							"host": [
+								"{{current_host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"v1",
+								"permisos"
+							]
+						},
+						"description": "Select Query"
+					},
+					"response": []
+				},
+				{
+					"name": "FindById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{current_host}}:{{port}}/v1/permisos/1",
+							"protocol": "http",
+							"host": [
+								"{{current_host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"v1",
+								"permisos",
+								"1"
+							]
+						},
+						"description": "Select Query"
+					},
+					"response": []
+				},
+				{
+					"name": "Insert",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "\n{\n \"nombre\":\"Banco Prueba X\"\n}"
+						},
+						"url": {
+							"raw": "http://{{current_host}}:{{port}}/v1/permisos",
+							"protocol": "http",
+							"host": [
+								"{{current_host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"v1",
+								"permisos"
+							]
+						},
+						"description": "Select Query"
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "\n{\n \"nombre\":\"Banco Prueba X Nuevo\"\n}"
+						},
+						"url": {
+							"raw": "http://{{current_host}}:{{port}}/v1/permisos/1",
+							"protocol": "http",
+							"host": [
+								"{{current_host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"v1",
+								"permisos",
+								"1"
+							]
+						},
+						"description": "Select Query"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "\n{\n \"nombre\":\"Banco Prueba X Nuevo\"\n}"
+						},
+						"url": {
+							"raw": "http://{{current_host}}:{{port}}/v1/permisos/1",
+							"protocol": "http",
+							"host": [
+								"{{current_host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"v1",
+								"permisos",
+								"1"
+							]
+						},
+						"description": "Select Query"
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "e1c76a0c-36ae-496f-90ef-f2137b9481a1",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "2814f187-de4c-4c05-9662-4b8717c843a0",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "98e3ff24-40d6-4617-9d25-947153527d8d",
+			"key": "current_host",
+			"value": "localhost",
+			"type": "string"
+		},
+		{
+			"id": "ce82381f-3893-4f64-bebe-3218ecc4b291",
+			"key": "port",
+			"value": "8080",
+			"type": "string"
+		}
+	],
+	"protocolProfileBehavior": {}
+}
