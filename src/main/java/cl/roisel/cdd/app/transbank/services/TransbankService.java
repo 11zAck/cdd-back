@@ -106,20 +106,45 @@ public class TransbankService {
         		if( code == responseCode ) {
         			log.info("\tCódigo..: {}", code);
         			log.info("\tMensaje.: {}", text);
-        			
         		}
         	});
         	
         } else {
-        	
+        	log.error("WEBPAY outResult: [NULL]");
         }
 
         return outResult;
         
     }
     
-    public void execAcknowledge() {
-    	
+    public void execAcknowledge(String token) {
+    	log.info(DIVISOR);
+        log.info("Ejecutando método acknowledge en transbank -->");
+        log.info("\ttoken.......: {}", token);
+        log.info(DIVISOR);
+
+        WebpayNormal webpay = null;
+        
+        try {
+        	webpay = new Webpay(this.configuration).getNormalTransaction();
+        } catch ( Exception e ) {
+        	log.error("[ ! ] : Error en el servicio de transbank. {}", e);
+            log.error("<-- Servicio con errores.");      
+        }
+        
+        if( null != webpay ) {
+        	try {
+				webpay.acknowledgeTransaction(token);
+			} catch (Exception e) {
+				log.error("[ ! ] : Error en el servicio de transbank. {}", e);
+			}
+        }else{
+            log.error("WEBPAY [null].");
+            log.error("<-- Servicio con errores.");
+        }
+        
+        return;
+        
     }
     
 }
