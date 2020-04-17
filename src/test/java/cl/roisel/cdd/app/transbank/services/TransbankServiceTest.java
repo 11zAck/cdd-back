@@ -11,6 +11,7 @@ import org.springframework.test.context.ActiveProfiles;
 
 import com.transbank.webpay.wswebpay.service.WsInitTransactionOutput;
 
+import cl.roisel.cdd.app.transbank.models.InitTransbankResponse;
 import cl.transbank.webpay.configuration.Configuration;
 
 @SpringBootTest
@@ -32,7 +33,7 @@ class TransbankServiceTest {
         String returnUrl = "http://localhost:8000/return";
         String finalUrl = "http://localhost:8000/final";
 
-        WsInitTransactionOutput out = service.iniciarPago(amount, sessionId, buyOrder, returnUrl, finalUrl);
+        InitTransbankResponse out = service.iniciarPago(amount, sessionId, buyOrder, returnUrl, finalUrl);
         assertNotNull( out );
     }
 }

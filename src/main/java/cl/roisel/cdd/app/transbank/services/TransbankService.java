@@ -1,5 +1,6 @@
 package cl.roisel.cdd.app.transbank.services;
 
+import cl.roisel.cdd.app.transbank.models.InitTransbankResponse;
 import cl.transbank.webpay.Webpay;
 import cl.transbank.webpay.WebpayNormal;
 import cl.transbank.webpay.configuration.Configuration;
@@ -41,7 +42,7 @@ public class TransbankService {
     	responseCodes.put(-8, "RUBRO NO AUTORIZADO");
     }
 
-    public WsInitTransactionOutput iniciarPago(double amount, String sessionId, String buyOrder, String returnUrl, String finalUrl ) {
+    public InitTransbankResponse iniciarPago(double amount, String sessionId, String buyOrder, String returnUrl, String finalUrl ) {
 
         log.info(DIVISOR);
         log.info("Iniciando pago en transbank -->");
@@ -52,6 +53,7 @@ public class TransbankService {
         log.info("\tfinalUrl....: {}", finalUrl);
         log.info(DIVISOR);
 
+        InitTransbankResponse response = null;
         WsInitTransactionOutput wsOutput = null;
         WebpayNormal webpay = null;
         try {
@@ -59,6 +61,7 @@ public class TransbankService {
         } catch (Exception e) {
             log.error("[ ! ] : Error en el servicio de transbank. {}", e);
             log.error("<-- Servicio con errores.");
+            return response;
         }
  
         if( null != webpay ) {
@@ -67,12 +70,13 @@ public class TransbankService {
             log.info("\tTOKEN: {}", wsOutput.getToken());
             log.info("\tURL..: {}", wsOutput.getUrl());
             log.info("<-- Esperando interacción con tarjetahabiente. ");
+            response = new InitTransbankResponse( wsOutput.getToken(), wsOutput.getUrl());
         }else{
             log.error("WEBPAY [null].");
             log.error("<-- Servicio con errores.");
         }
 
-        return wsOutput;
+        return response;
     }
     
     public TransactionResultOutput getResultado(String token) {
