@@ -17,12 +17,16 @@ public class BancoService {
 	private static final Logger log = LoggerFactory.getLogger(BancoService.class);
 
 	@Autowired private BancoRepo repo;
+
 	
+
 	@Transactional(readOnly = true)
 	public List<Banco> findAll() {
 		log.info("");
-		return repo.findAll();
+		return (List<Banco>) repo.findAll();
 	}
+	
+	
 	
 	@Transactional(readOnly = true)
 	public Banco findById( Long id ) {
@@ -37,7 +41,7 @@ public class BancoService {
 	}
 	
 	@Transactional(readOnly = false)
-	public Banco saveNew( Banco banco ) {
+	public Banco save( Banco banco ) {
 		log.info("");
 		return repo.save(banco);
 	}

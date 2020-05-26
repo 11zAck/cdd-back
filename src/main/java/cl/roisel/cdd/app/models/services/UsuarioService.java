@@ -9,51 +9,51 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import cl.roisel.cdd.app.models.entity.Organizador;
-import cl.roisel.cdd.app.models.repo.OrganizadorRepo;
+
+import cl.roisel.cdd.app.models.entity.Usuario;
+import cl.roisel.cdd.app.models.repo.UsuarioRepo;
 
 @Service
-public class OrganizadorService {
+public class UsuarioService {
 
-	private static final Logger log = LoggerFactory.getLogger(OrganizadorService.class);
+	private static final Logger log = LoggerFactory.getLogger(UsuarioService.class);
 	
-	@Autowired private OrganizadorRepo repo;
-	
+	@Autowired private UsuarioRepo repo;
 	
 	@Transactional(readOnly = true)
-	public List<Organizador> findAll(){
+	public List<Usuario> findAll(){
 		log.info("");
-		return (List<Organizador>)repo.findAll();
+		return (List<Usuario>)repo.findAll();
 	}
 	
 	@Transactional(readOnly = true)
-	public Organizador findByUsername( String username ) {
+	public Usuario findById(Long id) {
+		log.info("");
+		return repo.findById(id).orElse(null);
+	}
+	
+	@Transactional(readOnly = true)
+	public Usuario findByUsuario(String username) {
 		log.info("");
 		return repo.findByUsername(username).orElse(null);
 	}
 	
 	@Transactional(readOnly = true)
-	public Organizador findById(Long id) {
+	public Usuario findByDni(String dni) {
 		log.info("");
-		return repo.findById(id).orElse(null);
+		return repo.findByDni(dni).orElse(null);
 	}
-
+	
 	@Transactional(readOnly = false)
-	public Organizador update(Organizador nuevo) {
+	public Usuario update(Usuario nuevo) {
 		log.info("");
-		Organizador anterior = repo.findById( nuevo.getId() ).orElse( null );
+		Usuario anterior = repo.findById( nuevo.getId() ).orElse(null);
 		if( anterior == null ) {
-			log.error("");
 			return null;
 		}
 		
-		
-		anterior.setRegistroCompleto( nuevo.isRegistroCompleto() );
-		anterior.setCantidadEventos( nuevo.getCantidadEventos() + 1 );
-		
-		
-		//Funciones hereradas de usuario, No deberia poseer un Objeto Usuario?
-        anterior.setEditedAt(new Date()); 
+		//se ingresa fecha de actualización
+		anterior.setEditedAt(new Date()); 
 		
 		anterior.setAccountNonExpired(nuevo.getAccountNonExpired());
 		anterior.setAccountNonLocked(nuevo.getAccountNonLocked());
@@ -70,14 +70,14 @@ public class OrganizadorService {
 		
 		
 		
-		return repo.save( anterior );
+		return repo.save(anterior);
 	}
 	
 	@Transactional(readOnly = false)
-	public Organizador saveNew(Organizador nuevo) {
+	public Usuario saveNew(Usuario nuevo) {
 		log.info("");
 		nuevo.setCreateAt(new Date()); 
-		nuevo.setEditedAt(new Date());
+		nuevo.setEditedAt(new Date()); 
 		
 		return repo.save(nuevo);
 	}
@@ -87,5 +87,5 @@ public class OrganizadorService {
 	public void delete(Long id) {
 		repo.deleteById(id);
 	}
-	
+
 }

@@ -8,13 +8,12 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 
 import cl.roisel.cdd.app.models.entity.Banco;
+import cl.roisel.cdd.app.models.entity.Deseo;
+import cl.roisel.cdd.app.models.entity.Evento;
 
-public interface BancoRepo extends CrudRepository<Banco,Long>{
+public interface EventoRepo extends CrudRepository<Evento, Long>{
 	
-	@Query("from Banco where nombre=:nombre")
-	public Optional<Banco> findByNombre(@Param("nombre") String nombre);  
-	
+	@Query("from Evento where titulo=:titulo")
+	public Optional<Evento> findByTitulo(@Param("titulo") String titulo);  
 	
 }
-
-
