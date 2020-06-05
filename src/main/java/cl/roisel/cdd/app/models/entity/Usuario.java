@@ -1,17 +1,25 @@
 package cl.roisel.cdd.app.models.entity;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.PrePersist;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
@@ -80,6 +88,15 @@ public class Usuario implements Serializable {
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date editedAt;
 	
+	
+	@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@JoinTable(name = "cacc_usuarios_roles", 
+		joinColumns = @JoinColumn(name = "usuario_id"), 
+		inverseJoinColumns = @JoinColumn(name = "role_id"),
+		uniqueConstraints = {@UniqueConstraint( columnNames = {"usuario_id", "role_id"})})
+	private List<Permiso> roles;
+	
+	
 	@PrePersist
 	public void init() {
 		this.createAt = new Date();
@@ -100,6 +117,28 @@ public class Usuario implements Serializable {
 		this.lastname = lastname;
 		this.birthday = birthday;
 		this.enabled = enabled;
+		this.roles = new ArrayList<>();
+	}
+
+	public Usuario(Long id, @NotEmpty @Email String username, @NotEmpty String password, String dni,
+			@NotEmpty @Size(min = 4, max = 80) String firstname, @NotEmpty @Size(min = 4, max = 80) String lastname,
+			Date birthday, boolean enabled, Boolean accountNonExpired, Boolean accountNonLocked,
+			Boolean credentialsNonExpired, Date createAt, Date editedAt, List<Permiso> roles) {
+		super();
+		this.id = id;
+		this.username = username;
+		this.password = password;
+		this.dni = dni;
+		this.firstname = firstname;
+		this.lastname = lastname;
+		this.birthday = birthday;
+		this.enabled = enabled;
+		this.accountNonExpired = accountNonExpired;
+		this.accountNonLocked = accountNonLocked;
+		this.credentialsNonExpired = credentialsNonExpired;
+		this.createAt = createAt;
+		this.editedAt = editedAt;
+		this.roles = roles;
 	}
 
 	public Long getId() {
@@ -205,6 +244,15 @@ public class Usuario implements Serializable {
 	public void setEditedAt(Date editedAt) {
 		this.editedAt = editedAt;
 	}
+	
+	public List<Permiso> getRoles() {
+		return roles;
+	}
+
+	public void setRoles(List<Permiso> roles) {
+		this.roles = roles;
+	}
+
 
 	private static final long serialVersionUID = 1463680748166446691L;
 }

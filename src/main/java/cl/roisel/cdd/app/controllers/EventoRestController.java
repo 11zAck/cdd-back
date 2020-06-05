@@ -1,9 +1,10 @@
 package cl.roisel.cdd.app.controllers;
 
-import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -13,10 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.http.HttpStatus;
 
-import cl.roisel.cdd.app.models.entity.Banco;
-import cl.roisel.cdd.app.models.entity.Evento;
 import cl.roisel.cdd.app.models.entity.Evento;
 import cl.roisel.cdd.app.models.services.EventoService;
 
@@ -40,11 +38,13 @@ public class EventoRestController {
 		return this.service.findById(id);
 	}
 	
+	@Secured({"ROLE_REGISTRADO"})
 	@GetMapping("/nombre/{nombre}")
 	public Evento showNombre(@PathVariable String nombre) {
 		return this.service.findByNombre(nombre);
 	}
 
+	@Secured({"ROLE_REGISTRADO"})
 	@PostMapping
 	@ResponseStatus(HttpStatus.CREATED)
 	public Evento create(@RequestBody Evento evento) {
@@ -52,6 +52,7 @@ public class EventoRestController {
 		return evento;
 	}
 
+	@Secured({"ROLE_REGISTRADO"})
 	@PutMapping("/{id}")
 	@ResponseStatus(HttpStatus.CREATED)
 	public Evento update(@RequestBody Evento evento, @PathVariable Long id) {
@@ -62,8 +63,8 @@ public class EventoRestController {
 		return newEvento;
 	}
 
+	@Secured({"ROLE_ADMIN"})
 	@DeleteMapping("/{id}")
-	
 	public HttpStatus delete(@PathVariable Long id) {
 		
 		Evento evento = this.service.findById(id);
